@@ -1,6 +1,6 @@
 import { movies as dummyMovies, searchResults as dummySearchResults } from "@/data/movies";
 import * as tmdbService from "@/services/tmdbService";
-import supabaseClient, { supabase, hasSupabase } from "@/lib/supabase";
+import { supabase, hasSupabase } from "@/lib/supabase";
 import type { CastMember, Genre, Movie, MovieStats, SearchResult } from "@/types/movie";
 import { delay } from "@/lib/utils";
 
