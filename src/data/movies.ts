@@ -842,6 +842,7 @@ export const searchResults: SearchResult[] = [
     year: 1999,
     overview: 'Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents.',
     posterUrl: 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+    type: 'movie',
   },
   {
     id: 102,
@@ -849,6 +850,7 @@ export const searchResults: SearchResult[] = [
     year: 1994,
     overview: 'A burger-loving hit man, his philosophical partner, a drug-addled gangster\'s moll and a washed-up boxer converge in this sprawling, comedic crime caper.',
     posterUrl: 'https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg',
+    type: 'movie',
   },
   {
     id: 103,
@@ -856,6 +858,7 @@ export const searchResults: SearchResult[] = [
     year: 1990,
     overview: 'The true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who is adopted by neighbourhood gangsters at an early age.',
     posterUrl: 'https://image.tmdb.org/t/p/w500/aKuFiU82s5ISJDx2shmFo0lvGkE.jpg',
+    type: 'movie',
   },
   {
     id: 104,
@@ -863,6 +866,7 @@ export const searchResults: SearchResult[] = [
     year: 2003,
     overview: 'Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor.',
     posterUrl: 'https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg',
+    type: 'movie',
   },
   {
     id: 105,
@@ -870,5 +874,6 @@ export const searchResults: SearchResult[] = [
     year: 2000,
     overview: 'In the year 180, the death of emperor Marcus Aurelius throws the Roman Empire into chaos. Maximus is one of the Roman army\'s most capable generals.',
     posterUrl: 'https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg',
+    type: 'movie',
   },
 ];

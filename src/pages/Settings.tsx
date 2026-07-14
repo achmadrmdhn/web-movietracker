@@ -29,9 +29,7 @@ export default function About() {
             </div>
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-text-primary">About</h3>
-              <p className="text-xs text-text-muted">
-                This app helps you track movies and TV series: wishlist, watching, completed, ratings, and personal notes. It also includes statistics so you can review your viewing habits.
-              </p>
+              <p className="text-xs text-text-muted">This app helps you track movies and TV series: wishlist, watching, completed, ratings, and personal notes. It also includes statistics so you can review your viewing habits.</p>
             </div>
           </div>
         </motion.div>
