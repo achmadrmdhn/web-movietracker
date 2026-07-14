@@ -123,7 +123,7 @@ export default function MovieDetail() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="space-y-8">
       {/* Back Button */}
-      <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-text-primary">
+      <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-text-primary cursor-pointer">
         <ArrowLeft className="h-4 w-4" />
         Back
       </button>
