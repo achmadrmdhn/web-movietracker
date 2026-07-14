@@ -129,53 +129,74 @@ export default function MovieDetail() {
       </button>
 
       {/* Hero Backdrop */}
-      <div className="relative -mx-4 -mt-2 overflow-hidden rounded-2xl sm:-mx-6 lg:-mx-8">
-        <div className="aspect-[21/9] w-full">
-          <img src={movie.backdropUrl || movie.posterUrl} alt={movie.title} className="h-full w-full object-cover" />
-        </div>
-        <div className="gradient-overlay absolute inset-0" />
-        <div className="gradient-overlay-right absolute inset-0" />
+        <div className="relative -mx-4 -mt-2 sm:mx-0">
+          <div className="relative aspect-[7/3] w-full overflow-hidden rounded-2xl sm:aspect-[21/9]">
+            <img 
+              src={movie.backdropUrl || movie.posterUrl} 
+              alt={movie.title} 
+              className="h-full w-full object-cover" 
+            />
+            <div className="gradient-overlay absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/20 to-transparent sm:from-black/80 sm:via-black/40" />
+            <div className="gradient-overlay-right absolute inset-0 hidden sm:block" />
+          </div>
 
-        {/* Overlay Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-12">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end">
-            {/* Poster */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="hidden shrink-0 sm:block">
-              <img src={movie.posterUrl} alt={movie.title} className="h-56 w-40 rounded-xl object-cover shadow-2xl ring-1 ring-white/10 lg:h-72 lg:w-48" />
-            </motion.div>
+          <div className="relative px-4 pt-4 sm:absolute sm:bottom-0 sm:left-0 sm:right-0 sm:p-6 lg:p-12 z-10">
+            <div className="flex flex-row items-end gap-4 sm:gap-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.5, delay: 0.2 }} 
+                className="shrink-0 -mt-12 sm:-mt-0"
+              >
+                <img 
+                  src={movie.posterUrl} 
+                  alt={movie.title} 
+                  className="h-32 w-24 rounded-xl object-cover shadow-2xl ring-2 ring-black/40 sm:h-56 sm:w-40 lg:h-72 lg:w-48" 
+                />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.5, delay: 0.3 }} 
+                className="flex-1 text-left"
+              >
+                <h1 className="text-xl font-bold text-text-primary sm:text-3xl lg:text-4xl leading-tight">{movie.title}</h1>
+                {movie.originalTitle !== movie.title && (
+                  <p className="mt-0.5 text-xs text-text-muted italic sm:text-sm">{movie.originalTitle}</p>
+                )}
 
-            {/* Info */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="flex-1">
-              <h1 className="text-3xl font-bold text-text-primary lg:text-4xl">{movie.title}</h1>
-              {movie.originalTitle !== movie.title && <p className="mt-1 text-sm text-text-muted italic">{movie.originalTitle}</p>}
+                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-text-secondary sm:gap-3 sm:text-sm">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    {formatDate(movie.releaseDate)}
+                  </span>
+                  <span className="text-text-muted">·</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    {formatRuntime(movie.runtime)}
+                  </span>
+                  <span className="text-text-muted">·</span>
+                  <Rating value={movie.tmdbRating} size="sm" />
+                </div>
 
-              <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-text-secondary">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5" />
-                  {formatDate(movie.releaseDate)}
-                </span>
-                <span className="text-text-muted">·</span>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" />
-                  {formatRuntime(movie.runtime)}
-                </span>
-                <span className="text-text-muted">·</span>
-                <Rating value={movie.tmdbRating} size="md" />
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {movie.genres.map((genre) => (
-                  <GenreBadge key={genre.id} name={genre.name} />
-                ))}
-              </div>
-            </motion.div>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {movie.genres.map((genre) => (
+                    <GenreBadge key={genre.id} name={genre.name} />
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Action Bar */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.4 }} className="flex flex-wrap items-center gap-3">
-        <StatusBadge status={movie.status} size="md" />
+        {/* Action Bar */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.4, delay: 0.4 }} 
+          className="flex flex-wrap items-center gap-2 pt-2 sm:gap-3"
+        >
+          <StatusBadge status={movie.status} size="md" />
 
         {/* Status Dropdown */}
         <select
@@ -312,7 +333,7 @@ export default function MovieDetail() {
             if (hasNotes && !isEditingNotes) return;
             setNotesDraft(e.target.value);
           }}
-          placeholder="Tambahkan catatan pribadi tentang film ini..."
+          placeholder="Add a personal note about this movie..."
           rows={5}
           readOnly={hasNotes && !isEditingNotes}
           className={`mt-3 w-full resize-y rounded-lg border border-border bg-bg-elevated px-3 py-2 text-sm text-text-primary placeholder-text-muted transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 ${hasNotes && !isEditingNotes ? "cursor-default" : ""}`}
